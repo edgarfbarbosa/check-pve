@@ -17,8 +17,6 @@ async function getCharacterInfo(character: CharacterInfo) {
   }
 }
 
-getCharacterInfo({region: "us", realm: "Azralon", name: "Eddh"})
-
 interface CharacterData {
   name: string;
   race: string;
@@ -36,5 +34,26 @@ interface CharacterData {
 }
 
 function setCharacterInfo(data: CharacterData) {
-  console.log(data.mythic_plus_scores_by_season[0]?.scores?.all)
+  console.log(data)
 }
+
+const formSearchCharacter = document.getElementById('formSearchCharacter')
+const characterRegion = document.getElementById('characterRegion') as HTMLInputElement
+const characterAndRealm = document.getElementById('characterAndRealm') as HTMLInputElement
+
+function getCharacterData(e: Event) {
+  e.preventDefault()
+  
+  const region = characterRegion?.value
+  const characterNameAndRealm = characterAndRealm?.value.trim().toLowerCase().split('-')
+  
+  const characterInfo = {
+    region: region,
+    name: characterNameAndRealm[0],
+    realm: characterNameAndRealm[1]
+  }
+  
+  getCharacterInfo(characterInfo)
+}
+
+formSearchCharacter?.addEventListener('submit', getCharacterData)

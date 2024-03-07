@@ -10,7 +10,21 @@ async function getCharacterInfo(character) {
         console.error(error);
     }
 }
-getCharacterInfo({ region: "us", realm: "Azralon", name: "Eddh" });
 function setCharacterInfo(data) {
-    console.log(data.mythic_plus_scores_by_season[0]?.scores?.all);
+    console.log(data);
 }
+const formSearchCharacter = document.getElementById('formSearchCharacter');
+const characterRegion = document.getElementById('characterRegion');
+const characterAndRealm = document.getElementById('characterAndRealm');
+function getCharacterData(e) {
+    e.preventDefault();
+    const region = characterRegion?.value;
+    const characterNameAndRealm = characterAndRealm?.value.trim().toLowerCase().split('-');
+    const characterInfo = {
+        region: region,
+        name: characterNameAndRealm[0],
+        realm: characterNameAndRealm[1]
+    };
+    getCharacterInfo(characterInfo);
+}
+formSearchCharacter?.addEventListener('submit', getCharacterData);
