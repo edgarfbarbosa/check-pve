@@ -1,8 +1,4 @@
-interface CharacterInfo {
-  region: string;
-  realm: string;
-  name: string;
-}
+import { CharacterInfo, CharacterData } from '../../interfaces/character'
 
 async function getCharacterInfo(character: CharacterInfo) {
   try {
@@ -15,22 +11,6 @@ async function getCharacterInfo(character: CharacterInfo) {
   catch(error) {
     console.error(error)
   }
-}
-
-interface CharacterData {
-  name: string;
-  race: string;
-  class: string;
-  active_spec_name: string;
-  faction: string;
-  thumbnail_url: string;
-  region: string;
-  realm: string;
-  mythic_plus_scores_by_season: Array<{
-    scores: {
-      all: number
-    }
-  }>
 }
 
 function setCharacterInfo(data: CharacterData) {
@@ -46,14 +26,10 @@ function getCharacterData(e: Event) {
   
   const region = characterRegion?.value
   const characterNameAndRealm = characterAndRealm?.value.trim().toLowerCase().split('-')
+  const [name, realm] = characterNameAndRealm
+  const character = {region, realm, name}
   
-  const characterInfo = {
-    region: region,
-    name: characterNameAndRealm[0],
-    realm: characterNameAndRealm[1]
-  }
-  
-  getCharacterInfo(characterInfo)
+  getCharacterInfo(character)
 }
 
 formSearchCharacter?.addEventListener('submit', getCharacterData)

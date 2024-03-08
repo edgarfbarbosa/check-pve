@@ -1,4 +1,3 @@
-"use strict";
 async function getCharacterInfo(character) {
     try {
         const CHARACTER_PROFILE_URL = `https://raider.io/api/v1/characters/profile?region=${character.region}&realm=${character.realm}&name=${character.name}&fields=gear%2Cmythic_plus_scores_by_season%3Acurrent`;
@@ -20,11 +19,9 @@ function getCharacterData(e) {
     e.preventDefault();
     const region = characterRegion?.value;
     const characterNameAndRealm = characterAndRealm?.value.trim().toLowerCase().split('-');
-    const characterInfo = {
-        region: region,
-        name: characterNameAndRealm[0],
-        realm: characterNameAndRealm[1]
-    };
-    getCharacterInfo(characterInfo);
+    const [name, realm] = characterNameAndRealm;
+    const character = { region, realm, name };
+    getCharacterInfo(character);
 }
 formSearchCharacter?.addEventListener('submit', getCharacterData);
+export {};
