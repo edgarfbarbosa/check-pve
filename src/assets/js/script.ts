@@ -4,9 +4,18 @@ async function getCharacterInfo(character: CharacterInfo) {
   try {
     const CHARACTER_PROFILE_URL = `https://raider.io/api/v1/characters/profile?region=${character.region}&realm=${character.realm}&name=${character.name}&fields=gear%2Cmythic_plus_scores_by_season%3Acurrent`
     const response = await fetch(CHARACTER_PROFILE_URL)
-    const data = await response.json()
     
-    setCharacterInfo(data)
+    switch(response.status) {
+      case 200:
+      const data = await response.json()
+      setCharacterInfo(data)
+      break
+      case 400:
+      console.error("No matches found. Please check your filters.")
+      break
+      default:
+      console.error(`${response.ok}: ${response.status}`)
+    }
   }
   catch(error) {
     console.error(error)
