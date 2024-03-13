@@ -23,7 +23,12 @@ async function getCharacterInfo(character: CharacterInfo) {
 }
 
 function setCharacterInfo(data: CharacterData) {
+  const characterPhoto = document.getElementById('characterPhoto')
+  const characterName = document.getElementById('characterName')
   console.log(data)
+  
+  characterPhoto?.setAttribute('src', data.thumbnail_url)
+  if (characterName) characterName.innerText = data.name
 }
 
 const formSearchCharacter = document.getElementById('formSearchCharacter')
