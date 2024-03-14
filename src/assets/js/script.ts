@@ -22,22 +22,31 @@ async function getCharacterInfo(character: CharacterInfo) {
   }
 }
 
-function setCharacterInfo(data: CharacterData) {
+function setCharacterInfo(character: CharacterData) {
+  console.log(character)
+  
   const characterPhoto = document.getElementById('characterPhoto')
   const characterName = document.getElementById('characterName')
-  console.log(data)
+  const characterRegionAndRealm = document.getElementById('characterRegionAndRealm')
+  const characterClassAndSpec = document.getElementById('characterClassAndSpec')
+  const characterMythicSeasonScore = document.getElementById('characterMythicSeasonScore')
   
-  characterPhoto?.setAttribute('src', data.thumbnail_url)
-  if (characterName) characterName.innerText = data.name
+  characterPhoto?.setAttribute('src', character.thumbnail_url)
+  if (characterName && characterRegionAndRealm && characterClassAndSpec && characterMythicSeasonScore) {
+    characterName.innerText = character.name
+    characterRegionAndRealm.innerText = `(${character.region.toUpperCase()}) ${character.realm}`
+    characterClassAndSpec.innerText = `${character.race} ${character.class} ${character.active_spec_name}`
+    characterMythicSeasonScore.innerText = `${character.mythic_plus_scores_by_season[0].scores.all}`
+  }
 }
 
 const formSearchCharacter = document.getElementById('formSearchCharacter')
-const characterRegion = document.getElementById('characterRegion') as HTMLInputElement
-const characterAndRealm = document.getElementById('characterAndRealm') as HTMLInputElement
 
 function getCharacterData(e: Event) {
   e.preventDefault()
   
+  const characterRegion = document.getElementById('characterRegion') as HTMLInputElement
+  const characterAndRealm = document.getElementById('characterAndRealm') as HTMLInputElement
   const region = characterRegion?.value
   const characterNameAndRealm = characterAndRealm?.value.trim().toLowerCase().split('-')
   const [name, realm] = characterNameAndRealm

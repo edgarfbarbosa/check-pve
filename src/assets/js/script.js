@@ -18,19 +18,26 @@ async function getCharacterInfo(character) {
         console.error(error);
     }
 }
-function setCharacterInfo(data) {
+function setCharacterInfo(character) {
+    console.log(character);
     const characterPhoto = document.getElementById('characterPhoto');
     const characterName = document.getElementById('characterName');
-    console.log(data);
-    characterPhoto?.setAttribute('src', data.thumbnail_url);
-    if (characterName)
-        characterName.innerText = data.name;
+    const characterRegionAndRealm = document.getElementById('characterRegionAndRealm');
+    const characterClassAndSpec = document.getElementById('characterClassAndSpec');
+    const characterMythicSeasonScore = document.getElementById('characterMythicSeasonScore');
+    characterPhoto?.setAttribute('src', character.thumbnail_url);
+    if (characterName && characterRegionAndRealm && characterClassAndSpec && characterMythicSeasonScore) {
+        characterName.innerText = character.name;
+        characterRegionAndRealm.innerText = `(${character.region.toUpperCase()}) ${character.realm}`;
+        characterClassAndSpec.innerText = `${character.race} ${character.class} ${character.active_spec_name}`;
+        characterMythicSeasonScore.innerText = `${character.mythic_plus_scores_by_season[0].scores.all}`;
+    }
 }
 const formSearchCharacter = document.getElementById('formSearchCharacter');
-const characterRegion = document.getElementById('characterRegion');
-const characterAndRealm = document.getElementById('characterAndRealm');
 function getCharacterData(e) {
     e.preventDefault();
+    const characterRegion = document.getElementById('characterRegion');
+    const characterAndRealm = document.getElementById('characterAndRealm');
     const region = characterRegion?.value;
     const characterNameAndRealm = characterAndRealm?.value.trim().toLowerCase().split('-');
     const [name, realm] = characterNameAndRealm;
