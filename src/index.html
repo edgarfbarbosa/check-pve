@@ -12,7 +12,7 @@
 </head>
 <body>
   
-  <div class="flex flex-col justify-center items-center h-screen">
+  <div class="flex flex-col justify-center items-center h-screen w-screen">
     
     <form action="#" id="formSearchCharacter" novalidate>
       
@@ -31,22 +31,27 @@
       
     </form>
     
-    <section>
+    <section class="w-96 h-36 bg-neutral-300 rounded-2xl px-4">
       
-      <div>
+      <div class="flex flex-row w-full h-full items-center justify-between">
         
-        <picture class="w-52 h-52">
-          <img class="w-full h-full object-fill" src="" alt="" id="characterPhoto">
-        </picture>
-        
-        <div class="flex flex-col">
-          <h2 id="characterName"></h2>
-          <span id="characterRegionAndRealm"></span>
-          <span id="characterClassAndSpec"></span>
+        <div class="flex items-center">
+          
+          <picture class="w-24 h-24">
+            <img class="w-full h-full object-fill rounded-full" src="" alt="" id="characterPhoto">
+          </picture>
+          
+          <div class="flex flex-col ml-2">
+            <h2 class="text-lg" id="characterName"></h2>
+            <span class="text-sm" id="characterRegionAndRealm"></span>
+            <span class="text-sm" id="characterClassAndSpec"></span>
+            <span class="text-sm" id="characterItemLevel"></span>
+          </div>
+          
         </div>
         
         <div>
-          <span id="characterMythicSeasonScore"></span>
+          <span class="text-sm" id="characterMythicSeasonScore"></span>
         </div>
         
       </div>
