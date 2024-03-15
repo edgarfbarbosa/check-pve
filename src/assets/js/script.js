@@ -8,16 +8,17 @@ async function getCharacterInfo(character) {
                 setCharacterInfo(data);
                 break;
             case 400:
-                console.error("No matches found. Please check your filters.");
+                alert("No matches found. Please check your filters.");
                 break;
             default:
-                console.error(`${response.ok}: ${response.status}`);
+                alert(`HTTP response status codes: ${response.status} (${response.ok})`);
         }
     }
     catch (error) {
-        console.error(error);
+        alert(error);
     }
 }
+getCharacterInfo({ name: 'Eddh', realm: 'Azralon', region: 'us' });
 function setCharacterInfo(character) {
     console.log(character);
     const characterPhoto = document.getElementById('characterPhoto');
@@ -25,12 +26,14 @@ function setCharacterInfo(character) {
     const characterRegionAndRealm = document.getElementById('characterRegionAndRealm');
     const characterClassAndSpec = document.getElementById('characterClassAndSpec');
     const characterMythicSeasonScore = document.getElementById('characterMythicSeasonScore');
+    const characterItemLevel = document.getElementById('characterItemLevel');
     characterPhoto?.setAttribute('src', character.thumbnail_url);
-    if (characterName && characterRegionAndRealm && characterClassAndSpec && characterMythicSeasonScore) {
+    if (characterName && characterRegionAndRealm && characterClassAndSpec && characterMythicSeasonScore && characterItemLevel) {
         characterName.innerText = character.name;
         characterRegionAndRealm.innerText = `(${character.region.toUpperCase()}) ${character.realm}`;
         characterClassAndSpec.innerText = `${character.race} ${character.class} ${character.active_spec_name}`;
-        characterMythicSeasonScore.innerText = `${character.mythic_plus_scores_by_season[0].scores.all}`;
+        characterMythicSeasonScore.innerText = character.mythic_plus_scores_by_season[0].scores.all.toString();
+        characterItemLevel.innerText = `${character.gear.item_level_equipped.toFixed()} ilvl`;
     }
 }
 const formSearchCharacter = document.getElementById('formSearchCharacter');
