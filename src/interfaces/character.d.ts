@@ -10,6 +10,9 @@ export interface CharacterData {
   class: string;
   active_spec_name: string;
   faction: string;
+  gear: {
+    item_level_equipped: number
+  }
   thumbnail_url: string;
   region: string;
   realm: string;
