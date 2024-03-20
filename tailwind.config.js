@@ -8,7 +8,9 @@ module.exports = {
         'quicksand': ["Quicksand", 'sans-serif']
       },
       colors: {
-        'yellow': '#F8B700'
+        'yellow': '#F8B700',
+        'horde': '#E02929',
+        'alliance': '#6699FF'
       }
     },
   },
