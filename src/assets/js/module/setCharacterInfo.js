@@ -1,3 +1,4 @@
+import getRaceColor from './getRaceColor.js';
 export default function setCharacterInfo(character) {
     console.log(character);
     const characterPhoto = document.getElementById('characterPhoto');
@@ -6,6 +7,15 @@ export default function setCharacterInfo(character) {
     const characterClassAndSpec = document.getElementById('characterClassAndSpec');
     const characterMythicSeasonScore = document.getElementById('characterMythicSeasonScore');
     const characterItemLevel = document.getElementById('characterItemLevel');
+    characterName?.classList.remove('text-horde', 'text-alliance');
+    characterClassAndSpec?.classList.remove('text-yellow', 'text-horde', 'text-alliance');
+    if (character.faction == 'horde') {
+        characterName?.classList.add('text-horde');
+    }
+    else {
+        characterName?.classList.add('text-alliance');
+    }
+    characterClassAndSpec?.classList.add(getRaceColor(character.race));
     characterPhoto?.setAttribute('src', character.thumbnail_url);
     if (characterName && characterRegionAndRealm && characterClassAndSpec && characterMythicSeasonScore && characterItemLevel) {
         characterName.innerText = character.name;
