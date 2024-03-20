@@ -662,14 +662,74 @@ html {
   color: rgb(102 153 255 / var(--tw-text-opacity));
 }
 
+.text-death-knight {
+  --tw-text-opacity: 1;
+  color: rgb(196 31 59 / var(--tw-text-opacity));
+}
+
+.text-demon-hunter {
+  --tw-text-opacity: 1;
+  color: rgb(163 48 201 / var(--tw-text-opacity));
+}
+
+.text-druid {
+  --tw-text-opacity: 1;
+  color: rgb(255 125 10 / var(--tw-text-opacity));
+}
+
+.text-evoker {
+  --tw-text-opacity: 1;
+  color: rgb(51 147 127 / var(--tw-text-opacity));
+}
+
 .text-horde {
   --tw-text-opacity: 1;
   color: rgb(224 41 41 / var(--tw-text-opacity));
 }
 
-.text-white {
+.text-hunter {
+  --tw-text-opacity: 1;
+  color: rgb(171 212 115 / var(--tw-text-opacity));
+}
+
+.text-mage {
+  --tw-text-opacity: 1;
+  color: rgb(105 204 240 / var(--tw-text-opacity));
+}
+
+.text-monk {
+  --tw-text-opacity: 1;
+  color: rgb(0 255 150 / var(--tw-text-opacity));
+}
+
+.text-paladin {
+  --tw-text-opacity: 1;
+  color: rgb(245 140 186 / var(--tw-text-opacity));
+}
+
+.text-priest {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-rogue {
+  --tw-text-opacity: 1;
+  color: rgb(255 245 105 / var(--tw-text-opacity));
+}
+
+.text-shaman {
+  --tw-text-opacity: 1;
+  color: rgb(0 112 222 / var(--tw-text-opacity));
+}
+
+.text-warlock {
+  --tw-text-opacity: 1;
+  color: rgb(148 130 201 / var(--tw-text-opacity));
+}
+
+.text-warrior {
+  --tw-text-opacity: 1;
+  color: rgb(199 156 110 / var(--tw-text-opacity));
 }
 
 .text-yellow {
