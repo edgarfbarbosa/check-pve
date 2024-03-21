@@ -662,6 +662,11 @@ html {
   color: rgb(102 153 255 / var(--tw-text-opacity));
 }
 
+.text-blue-score {
+  --tw-text-opacity: 1;
+  color: rgb(83 148 183 / var(--tw-text-opacity));
+}
+
 .text-death-knight {
   --tw-text-opacity: 1;
   color: rgb(196 31 59 / var(--tw-text-opacity));
@@ -680,6 +685,11 @@ html {
 .text-evoker {
   --tw-text-opacity: 1;
   color: rgb(51 147 127 / var(--tw-text-opacity));
+}
+
+.text-green-score {
+  --tw-text-opacity: 1;
+  color: rgb(103 255 76 / var(--tw-text-opacity));
 }
 
 .text-horde {
@@ -702,14 +712,29 @@ html {
   color: rgb(0 255 150 / var(--tw-text-opacity));
 }
 
+.text-orange-score {
+  --tw-text-opacity: 1;
+  color: rgb(250 118 57 / var(--tw-text-opacity));
+}
+
 .text-paladin {
   --tw-text-opacity: 1;
   color: rgb(245 140 186 / var(--tw-text-opacity));
 }
 
+.text-pink-score {
+  --tw-text-opacity: 1;
+  color: rgb(227 89 139 / var(--tw-text-opacity));
+}
+
 .text-priest {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-purple-score {
+  --tw-text-opacity: 1;
+  color: rgb(129 83 232 / var(--tw-text-opacity));
 }
 
 .text-rogue {
@@ -730,6 +755,11 @@ html {
 .text-warrior {
   --tw-text-opacity: 1;
   color: rgb(199 156 110 / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .text-yellow {

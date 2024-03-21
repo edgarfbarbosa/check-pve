@@ -23,7 +23,12 @@ module.exports = {
         'rogue': '#FFF569',
         'shaman': '#0070DE',
         'warlock': '#9482C9',
-        'warrior': '#C79C6E'
+        'warrior': '#C79C6E',
+        'green-score': '#67FF4C',
+        'blue-score': '#5394B7',
+        'purple-score': '#8153E8',
+        'pink-score': '#E3598B',
+        'orange-score': '#FA7639'
       }
     },
   },
