@@ -1,32 +1,61 @@
-export default function getClassColor(characterClass: string): string {
+export default function getClassColor(element: HTMLElement, characterClass: string) {
+  element.classList.remove('text-yellow',
+  'text-death-knight',
+  'text-demon-hunter',
+  'text-druid',
+  'text-evoker',
+  'text-hunter',
+  'text-mage',
+  'text-monk',
+  'text-paladin',
+  'text-priest',
+  'text-rogue',
+  'text-shaman',
+  'text-warlock',
+  'text-warrior')
+  
   switch (characterClass) {
     case 'Death Knight':
-    return 'text-death-knight'
+    element.classList.add('text-death-knight')
+    break
     case 'Demon Hunter':
-    return 'text-demon-hunter'
+    element.classList.add('text-demon-hunter')
+    break
     case 'Druid':
-    return 'text-druid'
+    element.classList.add('text-druid')
+    break
     case 'Evoker':
-    return 'text-evoker'
+    element.classList.add('text-evoker')
+    break
     case 'Hunter':
-    return 'text-hunter'
+    element.classList.add('text-hunter')
+    break
     case 'Mage':
-    return 'text-mage'
+    element.classList.add('text-mage')
+    break
     case 'Monk':
-    return 'text-monk'
+    element.classList.add('text-monk')
+    break
     case 'Paladin':
-    return 'text-paladin'
+    element.classList.add('text-paladin')
+    break
     case 'Priest':
-    return 'text-priest'
+    element.classList.add('text-priest')
+    break
     case 'Rogue':
-    return 'text-rogue'
+    element.classList.add('text-rogue')
+    break
     case 'Shaman':
-    return 'text-shaman'
+    element.classList.add('text-shaman')
+    break
     case 'Warlock':
-    return 'text-warlock'
+    element.classList.add('text-warlock')
+    break
     case 'Warrior':
-    return 'text-warrior'
+    element.classList.add('text-warrior')
+    break
     default:
-    return 'text-yellow'
+    element.classList.add('text-yellow')
+    break
   }
 }
