@@ -1,5 +1,6 @@
 import { CharacterData } from '../../../interfaces/character'
 import getClassColor from './getClassColor.js'
+import getScoreColor from './getScoreColor.js'
 
 export default function setCharacterInfo(character: CharacterData) {
   console.log(character)
@@ -10,23 +11,8 @@ export default function setCharacterInfo(character: CharacterData) {
   const characterClassAndSpec = document.getElementById('characterClassAndSpec')
   const characterMythicSeasonScore = document.getElementById('characterMythicSeasonScore')
   const characterItemLevel = document.getElementById('characterItemLevel')
-  const colorOfClassesToRemove = ['text-yellow',
-  'text-death-knight',
-  'text-demon-hunter',
-  'text-druid',
-  'text-evoker',
-  'text-hunter',
-  'text-mage',
-  'text-monk',
-  'text-paladin',
-  'text-priest',
-  'text-rogue',
-  'text-shaman',
-  'text-warlock',
-  'text-warrior']
   
   characterName?.classList.remove('text-alliance', 'text-horde')
-  characterClassAndSpec?.classList.remove(...colorOfClassesToRemove)
   
   if (character.faction == 'alliance') {
     characterName?.classList.add('text-alliance')
@@ -34,7 +20,10 @@ export default function setCharacterInfo(character: CharacterData) {
     characterName?.classList.add('text-horde')
   }
   
-  characterClassAndSpec?.classList.add(getClassColor(character.class))
+  if (characterClassAndSpec && characterMythicSeasonScore) {
+    getScoreColor(characterMythicSeasonScore, character.mythic_plus_scores_by_season[0].scores.all)
+    getClassColor(characterClassAndSpec, character.class)
+  }
   
   characterPhoto?.setAttribute('src', character.thumbnail_url)
   if (characterName && characterRegionAndRealm && characterClassAndSpec && characterMythicSeasonScore && characterItemLevel) {
