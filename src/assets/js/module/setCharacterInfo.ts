@@ -1,10 +1,12 @@
 import { CharacterData } from '../../../interfaces/character'
 import getClassColor from './getClassColor.js'
 import getScoreColor from './getScoreColor.js'
+import getCharacterFaction from './getCharacterFaction.js'
 
 export default function setCharacterInfo(character: CharacterData) {
   console.log(character)
   
+  const characterSection = document.getElementById('characterSection')
   const characterPhoto = document.getElementById('characterPhoto')
   const characterName = document.getElementById('characterName')
   const characterRegionAndRealm = document.getElementById('characterRegionAndRealm')
@@ -12,21 +14,14 @@ export default function setCharacterInfo(character: CharacterData) {
   const characterMythicSeasonScore = document.getElementById('characterMythicSeasonScore')
   const characterItemLevel = document.getElementById('characterItemLevel')
   
-  characterName?.classList.remove('text-alliance', 'text-horde')
-  
-  if (character.faction == 'alliance') {
-    characterName?.classList.add('text-alliance')
-  } else {
-    characterName?.classList.add('text-horde')
-  }
-  
-  if (characterClassAndSpec && characterMythicSeasonScore) {
+  if (characterName && characterSection && characterClassAndSpec && characterMythicSeasonScore) {
+    getCharacterFaction(characterName, character.faction, characterSection)
     getScoreColor(characterMythicSeasonScore, character.mythic_plus_scores_by_season[0].scores.all)
     getClassColor(characterClassAndSpec, character.class)
   }
   
-  characterPhoto?.setAttribute('src', character.thumbnail_url)
-  if (characterName && characterRegionAndRealm && characterClassAndSpec && characterMythicSeasonScore && characterItemLevel) {
+  if (characterPhoto && characterName && characterRegionAndRealm && characterClassAndSpec && characterMythicSeasonScore && characterItemLevel) {
+    characterPhoto.setAttribute('src', character.thumbnail_url)
     characterName.innerText = character.name
     characterRegionAndRealm.innerText = `(${character.region.toUpperCase()}) ${character.realm}`
     characterClassAndSpec.innerText = `${character.class} ${character.active_spec_name}`
