@@ -446,6 +446,7 @@ video {
 
 html {
   font-family: "Quicksand", sans-serif;
+  font-weight: 400;
 }
 
 *, ::before, ::after {
@@ -620,9 +621,16 @@ html {
   border-radius: 9999px;
 }
 
-.bg-neutral-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(212 212 212 / var(--tw-bg-opacity));
+.bg-alliance-banner {
+  background-image: url('/src/assets/img/alliance-banner.jpg');
+}
+
+.bg-horde-banner {
+  background-image: url('/src/assets/img/horde-banner.jpg');
+}
+
+.bg-200 {
+  background-size: 200%;
 }
 
 .object-fill {
@@ -637,10 +645,6 @@ html {
 
 .font-outfit {
   font-family: Outfit, sans-serif;
-}
-
-.font-quicksand {
-  font-family: Quicksand, sans-serif;
 }
 
 .text-sm {

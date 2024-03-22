@@ -29,6 +29,13 @@ module.exports = {
         'purple-score': '#8153E8',
         'pink-score': '#E3598B',
         'orange-score': '#FA7639'
+      },
+      backgroundImage: {
+        'alliance-banner': "url('/src/assets/img/alliance-banner.jpg')",
+        'horde-banner': "url('/src/assets/img/horde-banner.jpg')"
+      },
+      backgroundSize: {
+        '200': '200%'
       }
     },
   },
