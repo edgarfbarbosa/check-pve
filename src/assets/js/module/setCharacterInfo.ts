@@ -14,6 +14,8 @@ export default function setCharacterInfo(character: CharacterData) {
   const characterMythicSeasonScore = document.getElementById('characterMythicSeasonScore')
   const characterItemLevel = document.getElementById('characterItemLevel')
   
+  characterSection?.classList.remove('hidden')
+  
   if (characterName && characterSection && characterClassAndSpec && characterMythicSeasonScore) {
     getCharacterFaction(characterName, character.faction, characterSection)
     getScoreColor(characterMythicSeasonScore, character.mythic_plus_scores_by_season[0].scores.all)
