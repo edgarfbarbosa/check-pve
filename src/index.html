@@ -16,51 +16,55 @@
 </head>
 <body>
   
-  <div class="flex flex-col justify-center items-center h-screen w-screen">
+  <div class="flex flex-col justify-center items-center h-screen w-screen bg-night">
     
-    <form action="#" id="formSearchCharacter" novalidate>
+    <div class="flex flex-col justify-center items-center p-8 bg-gradient-to-r from-raisin-black-1 to-raisin-black-2 rounded-2xl">
       
-      <select name="characterRegion" id="characterRegion">
-        <option value="us" selected>us</option>
-        <option value="eu">eu</option>
-      </select>
-      
-      <label for="characterAndRealm">
-        <input type="text" name="characterAndRealm" id="characterAndRealm" placeholder="Nome do personagem-servidor..." autocomplete="off">
-      </label>
-      
-      <button type="submit" id="btnSearchCharacter">
-        <i class="bi bi-search"></i>
-      </button>
-      
-    </form>
-    
-    <section id="characterSection" class="w-96 h-28 rounded-2xl px-4 text-yellow">
-      
-      <div class="flex flex-row w-full h-full items-center justify-between">
+      <form class="m-3 flex flex-row w-full justify-center font-outfit font-light text-lg" action="#" id="formSearchCharacter" novalidate>
         
-        <div class="flex items-center">
+        <select class="outline-none py-1 px-2 rounded-l-full" name="characterRegion" id="characterRegion">
+          <option value="us" selected>us</option>
+          <option value="eu">eu</option>
+        </select>
+        
+        <label for="characterAndRealm">
+          <input class="w-64 outline-none p-1" type="text" name="characterAndRealm" id="characterAndRealm" placeholder="Nome do personagem-servidor..." autocomplete="off">
+        </label>
+        
+        <button class="bg-white outline-none py-1 px-2 rounded-r-full" type="submit" id="btnSearchCharacter">
+          <i class="bi bi-search"></i>
+        </button>
+        
+      </form>
+      
+      <section id="characterSection" class="w-96 h-28 rounded-2xl px-4 text-yellow hidden">
+        
+        <div class="flex flex-row w-full h-full items-center justify-between">
           
-          <picture class="w-20 h-20">
-            <img class="w-full h-full object-fill rounded-full" src="" alt="" id="characterPhoto">
-          </picture>
+          <div class="flex items-center">
+            
+            <picture class="w-20 h-20">
+              <img class="w-full h-full object-fill rounded-full" src="" alt="" id="characterPhoto">
+            </picture>
+            
+            <div class="flex flex-col ml-2 text-shadow">
+              <h2 class="text-xl font-outfit font-light" id="characterName"></h2>
+              <span class="text-sm" id="characterRegionAndRealm"></span>
+              <span class="text-sm" id="characterClassAndSpec"></span>
+              <span class="text-sm" id="characterItemLevel"></span>
+            </div>
+            
+          </div>
           
-          <div class="flex flex-col ml-2 text-shadow">
-            <h2 class="text-xl font-outfit font-light" id="characterName"></h2>
-            <span class="text-sm" id="characterRegionAndRealm"></span>
-            <span class="text-sm" id="characterClassAndSpec"></span>
-            <span class="text-sm" id="characterItemLevel"></span>
+          <div>
+            <span class="text-sm font-outfit font-light text-shadow" id="characterMythicSeasonScore"></span>
           </div>
           
         </div>
         
-        <div>
-          <span class="text-sm font-outfit font-light text-shadow" id="characterMythicSeasonScore"></span>
-        </div>
-        
-      </div>
+      </section>
       
-    </section>
+    </div>
     
   </div>
   
