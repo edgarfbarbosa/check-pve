@@ -1,5 +1,6 @@
 import { CharacterInfo } from '../../../interfaces/character'
 import setCharacterInfo from './setCharacterInfo.js'
+import handleBadRequest from './handleBadRequest.js'
 
 export default async function getCharacterInfo(character: CharacterInfo) {
   try {
@@ -12,7 +13,7 @@ export default async function getCharacterInfo(character: CharacterInfo) {
       setCharacterInfo(data)
       break
       case 400:
-      alert("No matches found. Please check your filters.")
+      handleBadRequest()
       break
       default:
       alert(`HTTP response status codes: ${response.status} (${response.ok})`)
