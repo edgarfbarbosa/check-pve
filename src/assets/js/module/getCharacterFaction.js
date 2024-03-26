@@ -1,12 +1,12 @@
-export default function getCharacterFaction(name, faction, characterBanner) {
+export default function getCharacterFaction(name, faction, section) {
     name.classList.remove('text-alliance', 'text-horde');
-    characterBanner.classList.remove('bg-alliance-banner', 'bg-horde-banner', 'bg-200');
+    section.classList.remove('bg-alliance-banner', 'bg-horde-banner', 'bg-200');
     if (faction == 'alliance') {
         name.classList.add('text-alliance');
-        characterBanner.classList.add('bg-alliance-banner', 'bg-200');
+        section.classList.add('bg-alliance-banner', 'bg-200');
     }
     else {
         name.classList.add('text-horde');
-        characterBanner.classList.add('bg-horde-banner', 'bg-200');
+        section.classList.add('bg-horde-banner', 'bg-200');
     }
 }
