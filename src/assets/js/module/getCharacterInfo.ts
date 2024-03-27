@@ -1,6 +1,7 @@
 import { CharacterInfo } from '../../../interfaces/character'
 import setCharacterInfo from './setCharacterInfo.js'
 import handleBadRequest from './handleBadRequest.js'
+import setAffixesInfo from './setAffixesInfo.js'
 
 export default async function getCharacterInfo(character: CharacterInfo) {
   try {
@@ -16,16 +17,25 @@ export default async function getCharacterInfo(character: CharacterInfo) {
       })
     ])
     
-    switch(response[0].status) {
+    const [characterProfileResponse, mythicPlusAffixesResponse] = response
+    
+    switch(characterProfileResponse.status) {
       case 200:
-      const data = await response[0].json()
-      setCharacterInfo(data)
+      const characterData = await characterProfileResponse.json()
+      setCharacterInfo(characterData)
       break
       case 400:
       handleBadRequest()
       break
       default:
-      alert(`HTTP response status codes: ${response[0].status} (${response[0].ok})`)
+      alert(`HTTP response status codes: ${characterProfileResponse.status} (${characterProfileResponse.ok})`)
+    }
+    
+    switch(mythicPlusAffixesResponse.status) {
+      case 200:
+      const affixesData = await mythicPlusAffixesResponse.json()
+      setAffixesInfo(affixesData)
+      break
     }
   }
   catch(error) {
