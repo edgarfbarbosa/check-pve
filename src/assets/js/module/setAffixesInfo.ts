@@ -1,6 +1,16 @@
 import AffixInfo from '../../../interfaces/affixes'
 
 export default function setAffixesInfo(affixes: AffixInfo) {
-  console.log(affixes.affix_details[0].description)
-  console.log(affixes.affix_details[1].icon)
+  const affixNames = affixes.affix_details.map(affix => affix.name)
+  const wowheadAffixLinks = affixes.affix_details.map(affix => affix.wowhead_url)
+  const affixesSection = document.getElementById('affixesSection')
+  const affixAnchors = affixesSection?.querySelectorAll('a')
+  
+  affixesSection?.classList.remove('hidden')
+  affixesSection?.classList.add('block')
+  
+  affixAnchors?.forEach((anchor, i) => {
+    anchor.innerText = affixNames[i]
+    anchor.href = wowheadAffixLinks[i]
+  })
 }
