@@ -4,7 +4,7 @@ import setAffixesInfo from './setAffixesInfo.js';
 export default async function getCharacterInfo(character) {
     try {
         const CHARACTER_PROFILE_URL = `https://raider.io/api/v1/characters/profile?region=${character.region}&realm=${character.realm}&name=${character.name}&fields=gear%2Cmythic_plus_scores_by_season%3Acurrent`;
-        const MYTHIC_PLUS_AFFIXES_URL = `https://raider.io/api/v1/mythic-plus/affixes?region=${character.region}&locale=pt`;
+        const MYTHIC_PLUS_AFFIXES_URL = `https://raider.io/api/v1/mythic-plus/affixes?region=${character.region}&locale=en`;
         const response = await Promise.all([
             fetch(CHARACTER_PROFILE_URL, {
                 method: 'GET'
