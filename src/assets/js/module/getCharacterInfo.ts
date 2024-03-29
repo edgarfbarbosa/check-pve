@@ -2,6 +2,7 @@ import { CharacterInfo } from '../../../interfaces/character'
 import setCharacterInfo from './setCharacterInfo.js'
 import handleBadRequest from './handleBadRequest.js'
 import setAffixesInfo from './setAffixesInfo.js'
+import handleNotFound from './handleNotFound.js'
 
 export default async function getCharacterInfo(character: CharacterInfo) {
   try {
@@ -28,7 +29,7 @@ export default async function getCharacterInfo(character: CharacterInfo) {
       handleBadRequest()
       break
       default:
-      alert(`HTTP response status codes: ${characterProfileResponse.status} (${characterProfileResponse.ok})`)
+      alert(`Erro ao buscar o perfil do personagem. Código de status HTTP: ${characterProfileResponse.status}`)
     }
     
     switch(mythicPlusAffixesResponse.status) {
@@ -36,9 +37,15 @@ export default async function getCharacterInfo(character: CharacterInfo) {
       const affixesData = await mythicPlusAffixesResponse.json()
       setAffixesInfo(affixesData)
       break
+      case 404:
+      handleNotFound()
+      break
+      default:
+      alert(`Erro ao buscar os afixos da semana. Código de status HTTP: ${mythicPlusAffixesResponse.status}`)
     }
   }
   catch(error) {
-    alert(error)
+    alert(`Desculpe, houve um problema ao buscar as informações do personagem. ${error}.`)
+    console.error(error)
   }
 }
