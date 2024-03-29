@@ -1,6 +1,6 @@
 export default interface AffixInfo {
   affix_details: Array<{
-    description: string;
-    icon: string
+    name: string;
+    wowhead_url: string
   }>
 }
