@@ -9,8 +9,8 @@ module.exports = {
       },
       colors: {
         'night': '#101113',
-        'raisin-black-1': '#282833',
-        'raisin-black-2': '#1F1F2A',
+        'onyx': '#3F3F4A',
+        'raisin-black': '#1F1F2A',
         'yellow': '#F8B700',
         'alliance': '#6699FF',
         'horde': '#E02929',
